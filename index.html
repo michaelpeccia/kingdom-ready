@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kingdom Ready: Survival Prep | Emergency Prep Checklist</title>
+<meta name="description" content="Free emergency prep checklist, 72-hour kit list, water calculator and water safety guide from Kingdom Ready, a Kingdom Life Ministry app.">
+<meta name="keywords" content="prepper checklist, 72 hour kit, emergency prep, survival prep, bug out bag, water storage, Christian prepper">
+<meta property="og:title" content="Kingdom Ready: Survival Prep">
+<meta property="og:description" content="Free emergency prep checklist, water calculator and water safety guide.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0f1024; --panel:#181a38; --panel2:#20234a; --ink:#f3f1ea; --muted:#b7b6c9;
+  --gold:#d9b45a; --gold-soft:#f0dca5; --indigo:#4b4fb8; --line:#2f3266; --ok:#7fc8a0;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Source Sans 3",system-ui,sans-serif;font-size:17px;line-height:1.6}
+a{color:var(--gold-soft)}
+.wrap{max-width:900px;margin:0 auto;padding:0 16px}
+header.hero{padding:64px 0 48px;text-align:center;background:radial-gradient(ellipse at top,#2a2d6b 0%,var(--bg) 70%);border-bottom:1px solid var(--line)}
+.eyebrow{letter-spacing:.18em;text-transform:uppercase;font-size:13px;color:var(--gold);font-weight:700}
+h1{font-family:Cinzel,serif;font-size:clamp(32px,7vw,54px);line-height:1.1;margin:12px 0 8px;color:var(--gold-soft)}
+.sub{font-size:clamp(18px,3.5vw,22px);color:var(--muted);max-width:620px;margin:0 auto 24px}
+.btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn{display:inline-block;padding:12px 22px;border-radius:999px;font-weight:700;text-decoration:none;border:2px solid var(--gold)}
+.btn.primary{background:var(--gold);color:#1a1530}
+.btn.ghost{color:var(--gold-soft)}
+.badge{display:inline-block;margin-top:20px;font-size:14px;color:var(--muted);border:1px dashed var(--line);padding:6px 14px;border-radius:999px}
+section{padding:48px 0;border-bottom:1px solid var(--line)}
+h2{font-family:Cinzel,serif;color:var(--gold-soft);font-size:clamp(24px,5vw,32px);margin:0 0 8px}
+.lead{color:var(--muted);margin:0 0 24px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px}
+.card h3{margin:0 0 6px;color:var(--gold-soft);font-size:19px}
+.card p{margin:0;color:var(--muted);font-size:16px}
+.progress{display:flex;align-items:center;gap:12px;margin:0 0 16px}
+.bar{flex:1;height:10px;background:var(--panel2);border-radius:99px;overflow:hidden}
+.bar span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--indigo),var(--gold));transition:width .3s}
+.cat{margin:20px 0 8px;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:.08em;font-size:14px}
+ul.check{list-style:none;padding:0;margin:0;display:grid;gap:8px}
+ul.check label{display:flex;gap:12px;align-items:flex-start;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:10px 14px;cursor:pointer}
+ul.check input{width:20px;height:20px;margin-top:3px;accent-color:var(--gold);flex:none}
+ul.check input:checked + span{color:var(--muted);text-decoration:line-through}
+.tools{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.field{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
+.field label{font-weight:600;font-size:15px}
+.field input,.field select{background:var(--panel2);color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:10px 12px;font-size:17px}
+.result{background:var(--panel2);border-left:4px solid var(--gold);border-radius:8px;padding:14px;font-size:18px}
+.result strong{color:var(--gold-soft);font-size:24px}
+.note{font-size:14px;color:var(--muted);margin-top:10px}
+.warn{background:#3a1f2a;border:1px solid #7a3a4f;border-radius:10px;padding:14px;margin:16px 0;font-size:16px}
+table{width:100%;border-collapse:collapse;font-size:16px;margin:12px 0}
+th,td{border:1px solid var(--line);padding:8px 10px;text-align:left}
+th{background:var(--panel2);color:var(--gold-soft)}
+blockquote{margin:0;padding:20px 22px;background:var(--panel);border-left:4px solid var(--gold);border-radius:10px;font-size:18px}
+blockquote cite{display:block;margin-top:8px;color:var(--gold);font-style:normal;font-weight:700;font-size:15px}
+footer{padding:36px 0 48px;text-align:center;color:var(--muted);font-size:15px}
+footer a{margin:0 8px}
+.small-btn{background:none;border:1px solid var(--line);color:var(--muted);border-radius:8px;padding:6px 12px;cursor:pointer;font-size:14px}
+@media print{body{background:#fff;color:#000}header.hero,section{background:none;border-color:#ccc}.btns,.tools,footer,.small-btn{display:none}ul.check label{background:none;border-color:#ccc}h1,h2,.cat{color:#000}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">A Kingdom Life Ministry App</div>
+    <h1>Kingdom Ready: Survival Prep</h1>
+    <p class="sub">Free emergency prep checklists, a water calculator and a water safety guide, so your household is ready when the storm comes.</p>
+    <div class="btns">
+      <a class="btn primary" href="#checklist">Start the 72-Hour Checklist</a>
+      <a class="btn ghost" href="#water">Water Calculator</a>
+    </div>
+    <div class="badge">App coming soon to Google Play</div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <h2>What's in the app</h2>
+    <p class="lead">Everything works offline, because emergencies don't wait for a signal.</p>
+    <div class="grid">
+      <div class="card"><h3>Supply checklists</h3><p>72-hour kit, 2-week shelter-in-place, bug-out bag, car kit, plus pets, babies and seniors.</p></div>
+      <div class="card"><h3>How much do I need?</h3><p>Enter your household and days, and get water and food amounts in seconds.</p></div>
+      <div class="card"><h3>Expiration reminders</h3><p>Alerts before your water, food, batteries and meds go bad.</p></div>
+      <div class="card"><h3>Family plan</h3><p>Meeting spots, contacts and who grabs what, stored only on your phone.</p></div>
+      <div class="card"><h3>Offline guides</h3><p>Water safety, power outages, tornadoes, winter storms, floods and first aid.</p></div>
+      <div class="card"><h3>Spiritual readiness</h3><p>Joseph's storehouses, the wisdom of the ant, and a prayer for your household.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- AFFILIATE DISCLOSURE: uncomment this block once affiliate links are added to the checklist.
+<div class="wrap"><p class="warn" style="background:#1f2a3a;border-color:#3a5a7a">Kingdom Ready earns a small commission when you buy through links on this page, at no extra cost to you. It helps keep the app free.</p></div>
+-->
+
+<section id="checklist">
+  <div class="wrap">
+    <h2>72-Hour Emergency Kit Checklist</h2>
+    <p class="lead">Based on the Ready.gov basic supply list. Your checkmarks save on this device. Store items in airtight bags, in one or two easy-to-carry bins or a duffel.</p>
+    <div class="progress"><div class="bar"><span id="bar"></span></div><strong id="count">0 of 0</strong></div>
+    <div id="list"></div>
+    <p style="margin-top:16px"><button class="small-btn" onclick="window.print()">Print checklist</button> <button class="small-btn" id="reset">Clear checkmarks</button></p>
+  </div>
+</section>
+
+<section id="water">
+  <div class="wrap">
+    <h2>Water Calculators</h2>
+    <p class="lead">The standard is 1 gallon of water per person per day, for drinking and sanitation.</p>
+    <div class="tools">
+      <div class="card">
+        <h3>How much water to store</h3>
+        <div class="field"><label for="people">People in your household</label><input id="people" type="number" min="1" value="4"></div>
+        <div class="field"><label for="days">Days</label><select id="days"><option value="3">3 days (go kit)</option><option value="14" selected>14 days (shelter at home)</option><option value="30">30 days</option></select></div>
+        <div class="field"><label for="pets">Pets</label><input id="pets" type="number" min="0" value="0"></div>
+        <div class="result"><strong id="gal">56</strong> gallons<br><span id="jugs" class="note"></span></div>
+        <p class="note">Store extra in hot weather or if someone is sick. Pet water is a rough planning amount; check with your vet for your animal.</p>
+      </div>
+      <div class="card">
+        <h3>Bleach to make water safe</h3>
+        <div class="field"><label for="bgal">Gallons of water</label><input id="bgal" type="number" min="1" value="1"></div>
+        <div class="field"><label for="cloudy">Is the water cloudy, colored or very cold?</label><select id="cloudy"><option value="1">No, it's clear</option><option value="2">Yes (double the bleach)</option></select></div>
+        <div class="result"><strong id="drops">8</strong> drops<br><span id="tsp" class="note"></span></div>
+        <p class="note">For plain, unscented bleach with 5% to 9% sodium hypochlorite (CDC). Stir, then wait at least 30 minutes before drinking.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Making Water Safe: Quick Guide</h2>
+    <p class="lead">From the CDC and EPA. If you don't have safe bottled water, boiling is the best way to kill germs.</p>
+    <div class="grid">
+      <div class="card"><h3>1. Boil</h3><p>Filter or settle cloudy water first. Bring to a rolling boil for 1 minute (3 minutes above 6,500 feet). Cool and store in clean, covered containers.</p></div>
+      <div class="card"><h3>2. Bleach</h3><p>8 drops per gallon of 5% to 9% unscented bleach, 16 drops if cloudy. Stir and wait 30 minutes.</p></div>
+      <div class="card"><h3>3. Filter</h3><p>Portable filters don't remove viruses. After filtering, add a chemical disinfectant.</p></div>
+    </div>
+    <div class="warn"><strong>Warning:</strong> boiling and bleach cannot make water safe if it contains fuel, toxic chemicals or radioactive material. Use bottled water and contact your health department.</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Prepared, Not Afraid</h2>
+    <p class="lead">Joseph stored grain in the years of plenty, and when famine came, all the countries came to Egypt to buy (Genesis 41). Preparing is wisdom, and our trust stays in YHWH.</p>
+    <blockquote>Go to the ant, thou sluggard; consider her ways, and be wise: which having no guide, overseer, or ruler, provideth her meat in the summer, and gathereth her food in the harvest.<cite>Proverbs 6:6-8 (KJV)</cite></blockquote>
+    <p style="margin-top:20px;color:var(--muted)">For God hath not given us the spirit of fear; but of power, and of love, and of a sound mind. <strong style="color:var(--gold)">2 Timothy 1:7</strong></p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap" style="text-align:center">
+    <h2>Get the app when it launches</h2>
+    <p class="lead">Kingdom Ready will be free on Google Play. Follow Kingdom Life Ministry for the launch announcement.</p>
+    <div class="btns"><a class="btn primary" href="https://www.facebook.com/Kingdomlifeministry777">Follow on Facebook</a><a class="btn ghost" href="mailto:michaelbenyah@kingdom-life-ministry.com">Email us</a></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>Kingdom Ready: Survival Prep is a Kingdom Life Ministry app.</p>
+    <p>This page is general preparedness information, not professional advice. Always follow instructions from your local authorities.</p>
+    <p>Sources: <a href="https://www.ready.gov/kit">Ready.gov</a> <a href="https://www.cdc.gov/water-emergency/about/index.html">CDC</a> <a href="https://www.epa.gov/ground-water-and-drinking-water/emergency-disinfection-drinking-water">EPA</a></p>
+  </div>
+</footer>
+
+<script>
+const kit = {
+  "Water and food": ["Water: 3 gallons per person","Non-perishable food for 3 days","Manual can opener","Mess kit, paper plates, cups, utensils"],
+  "Light, power, communication": ["Flashlight, one per person","Extra batteries","Battery or hand-crank radio with NOAA Weather Radio alert","Phone charger and backup power bank","Whistle to signal for help"],
+  "First aid and health": ["First aid kit","7-day supply of prescription meds","Pain reliever, anti-diarrhea, antacid","Spare glasses or contact solution"],
+  "Shelter and tools": ["Dust masks","Plastic sheeting, duct tape, scissors","Wrench or pliers to shut off utilities","Matches in a waterproof container","Blanket or sleeping bag per person","Change of clothes and sturdy shoes per person"],
+  "Hygiene": ["Moist towelettes, garbage bags, plastic ties","Soap, hand sanitizer","Feminine and personal hygiene items"],
+  "Other": ["Cash in small bills","Local paper maps","Paper and pencil","Pocket Bible or Scripture cards"]
+};
+const KEY = "kr72";
+let saved = {};
+try { saved = JSON.parse(localStorage.getItem(KEY) || "{}"); } catch(e) { saved = {}; }
+function save(){ try { localStorage.setItem(KEY, JSON.stringify(saved)); } catch(e) {} }
+const list = document.getElementById("list");
+let total = 0;
+for (const [cat, items] of Object.entries(kit)) {
+  const h = document.createElement("div"); h.className = "cat"; h.textContent = cat; list.appendChild(h);
+  const ul = document.createElement("ul"); ul.className = "check";
+  items.forEach((it, i) => {
+    const id = cat + "|" + i; total++;
+    const li = document.createElement("li");
+    li.innerHTML = '<label><input type="checkbox"><span></span></label>';
+    li.querySelector("span").textContent = it;
+    const cb = li.querySelector("input");
+    cb.checked = !!saved[id];
+    cb.addEventListener("change", () => { saved[id] = cb.checked; save(); update(); });
+    ul.appendChild(li);
+  });
+  list.appendChild(ul);
+}
+function update(){
+  const done = list.querySelectorAll("input:checked").length;
+  document.getElementById("count").textContent = done + " of " + total;
+  document.getElementById("bar").style.width = (done / total * 100) + "%";
+}
+document.getElementById("reset").addEventListener("click", () => {
+  saved = {}; save(); list.querySelectorAll("input").forEach(c => c.checked = false); update();
+});
+update();
+
+function water(){
+  const p = Math.max(1, +document.getElementById("people").value || 1);
+  const d = +document.getElementById("days").value;
+  const pets = Math.max(0, +document.getElementById("pets").value || 0);
+  const g = p * d + pets * d * 0.5;
+  document.getElementById("gal").textContent = (Math.round(g * 10) / 10).toLocaleString();
+  document.getElementById("jugs").textContent = "About " + Math.ceil(g / 5) + " five-gallon jugs";
+}
+["people","days","pets"].forEach(id => document.getElementById(id).addEventListener("input", water));
+water();
+
+function bleach(){
+  const gal = Math.max(0, +document.getElementById("bgal").value || 0);
+  const mult = +document.getElementById("cloudy").value;
+  const drops = Math.round(gal * 8 * mult);
+  document.getElementById("drops").textContent = drops.toLocaleString();
+  const tsp = drops / 80;
+  document.getElementById("tsp").textContent = drops >= 40 ? "About " + (Math.round(tsp * 8) / 8) + " teaspoon" + (tsp > 1 ? "s" : "") + " (40 drops is about 1/2 teaspoon)" : "Use a dropper for small amounts";
+}
+["bgal","cloudy"].forEach(id => document.getElementById(id).addEventListener("input", bleach));
+bleach();
+</script>
+</body>
+</html>
