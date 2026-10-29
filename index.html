@@ -37,6 +37,11 @@ h2{font-family:Cinzel,serif;color:var(--gold-soft);font-size:clamp(24px,5vw,32px
 .card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px}
 .card h3{margin:0 0 6px;color:var(--gold-soft);font-size:19px}
 .card p{margin:0;color:var(--muted);font-size:16px}
+a.card{display:block;text-decoration:none;color:inherit;position:relative;transition:border-color .2s,transform .2s,background .2s}
+a.card:hover,a.card:focus-visible{border-color:var(--gold);background:var(--panel2);transform:translateY(-2px);outline:none}
+a.card .go{display:inline-block;margin-top:10px;font-size:14px;font-weight:700;color:var(--gold)}
+a.card .soon{display:inline-block;margin-top:10px;font-size:13px;font-weight:700;color:var(--muted);border:1px dashed var(--line);border-radius:999px;padding:2px 10px}
+section[id]{scroll-margin-top:16px}
 .progress{display:flex;align-items:center;gap:12px;margin:0 0 16px}
 .bar{flex:1;height:10px;background:var(--panel2);border-radius:99px;overflow:hidden}
 .bar span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--indigo),var(--gold));transition:width .3s}
@@ -84,12 +89,12 @@ footer a{margin:0 8px}
     <h2>What's in the app</h2>
     <p class="lead">Everything works offline, because emergencies don't wait for a signal.</p>
     <div class="grid">
-      <div class="card"><h3>Supply checklists</h3><p>72-hour kit, 2-week shelter-in-place, bug-out bag, car kit, plus pets, babies and seniors.</p></div>
-      <div class="card"><h3>How much do I need?</h3><p>Enter your household and days, and get water and food amounts in seconds.</p></div>
-      <div class="card"><h3>Expiration reminders</h3><p>Alerts before your water, food, batteries and meds go bad.</p></div>
-      <div class="card"><h3>Family plan</h3><p>Meeting spots, contacts and who grabs what, stored only on your phone.</p></div>
-      <div class="card"><h3>Offline guides</h3><p>Water safety, power outages, tornadoes, winter storms, floods and first aid.</p></div>
-      <div class="card"><h3>Spiritual readiness</h3><p>Joseph's storehouses, the wisdom of the ant, and a prayer for your household.</p></div>
+      <a class="card" href="#checklist"><h3>Supply checklists</h3><p>72-hour kit, 2-week shelter-in-place, bug-out bag, car kit, plus pets, babies and seniors.</p><span class="go">Start the checklist &rarr;</span></a>
+      <a class="card" href="#water"><h3>How much do I need?</h3><p>Enter your household and days, and get water and food amounts in seconds.</p><span class="go">Try the calculator &rarr;</span></a>
+      <a class="card" href="#get-app"><h3>Expiration reminders</h3><p>Alerts before your water, food, batteries and meds go bad.</p><span class="soon">Coming in the app</span></a>
+      <a class="card" href="#get-app"><h3>Family plan</h3><p>Meeting spots, contacts and who grabs what, stored only on your phone.</p><span class="soon">Coming in the app</span></a>
+      <a class="card" href="#water-safety"><h3>Offline guides</h3><p>Water safety, power outages, tornadoes, winter storms, floods and first aid.</p><span class="go">Read the water guide &rarr;</span></a>
+      <a class="card" href="#spiritual"><h3>Spiritual readiness</h3><p>Joseph's storehouses, the wisdom of the ant, and a prayer for your household.</p><span class="go">Read more &rarr;</span></a>
     </div>
   </div>
 </section>
@@ -132,7 +137,7 @@ footer a{margin:0 8px}
   </div>
 </section>
 
-<section>
+<section id="water-safety">
   <div class="wrap">
     <h2>Making Water Safe: Quick Guide</h2>
     <p class="lead">From the CDC and EPA. If you don't have safe bottled water, boiling is the best way to kill germs.</p>
@@ -145,7 +150,7 @@ footer a{margin:0 8px}
   </div>
 </section>
 
-<section>
+<section id="spiritual">
   <div class="wrap">
     <h2>Prepared, Not Afraid</h2>
     <p class="lead">Joseph stored grain in the years of plenty, and when famine came, all the countries came to Egypt to buy (Genesis 41). Preparing is wisdom, and our trust stays in YHWH.</p>
@@ -154,7 +159,7 @@ footer a{margin:0 8px}
   </div>
 </section>
 
-<section>
+<section id="get-app">
   <div class="wrap" style="text-align:center">
     <h2>Get the app when it launches</h2>
     <p class="lead">Kingdom Ready will be free on Google Play. Follow Kingdom Life Ministry for the launch announcement.</p>
