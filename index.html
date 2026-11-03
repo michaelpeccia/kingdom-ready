@@ -9,6 +9,10 @@
 <meta property="og:title" content="Kingdom Ready: Survival Prep">
 <meta property="og:description" content="Free emergency prep checklist, water calculator and water safety guide.">
 <meta property="og:type" content="website">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#0f1024">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
@@ -89,14 +93,15 @@ ul.check .tip{display:block;font-size:14px;color:var(--muted)}
       <a class="btn ghost" href="#stockpile">30 &amp; 90-Day Lists</a>
       <a class="btn ghost" href="#water">Water Calculator</a>
     </div>
-    <div class="badge">App coming soon to Google Play</div>
+    <div class="badge">Works offline: add this page to your home screen</div>
+    <div class="badge" id="netStatus" style="display:none;border-color:var(--gold);color:var(--gold-soft)">You are offline. Everything here still works.</div>
   </div>
 </header>
 
 <section>
   <div class="wrap">
     <h2>What's in the app</h2>
-    <p class="lead">Everything works offline, because emergencies don't wait for a signal.</p>
+    <p class="lead">Everything works offline, because emergencies don't wait for a signal. Open this page once with a connection, then add it to your home screen (Chrome menu &rarr; Add to Home screen, or Share &rarr; Add to Home Screen on iPhone).</p>
     <div class="grid">
       <a class="card" href="#checklist"><h3>Supply checklists</h3><p>72-hour kit, 2-week shelter-in-place, bug-out bag, car kit, plus pets, babies and seniors.</p><span class="go">Start the checklist &rarr;</span></a>
       <a class="card" href="#stockpile"><h3>30 &amp; 90-day lists</h3><p>Stock your home for a month or a season: food, water, toilet paper, batteries, generators and solar power.</p><span class="go">Build your stockpile &rarr;</span></a>
@@ -267,6 +272,10 @@ function bleach(){
 ["bgal","cloudy"].forEach(id => document.getElementById(id).addEventListener("input", bleach));
 bleach();
 
+if ("serviceWorker" in navigator) { window.addEventListener("load", () => navigator.serviceWorker.register("sw.js").catch(() => {})); }
+function net(){ const n = document.getElementById("netStatus"); if (n) n.style.display = navigator.onLine ? "none" : "inline-block"; }
+window.addEventListener("online", net); window.addEventListener("offline", net); net();
+
 // 30 and 90-day stockpile. q(p,d,pets) returns a quantity line or "". only90 = shows on the 90-day list only.
 const sp = {
   "Water": [
@@ -291,7 +300,7 @@ const sp = {
     {t:"Garden seeds (non-hybrid) and basic gardening tools", only90:true},
     {t:"Rotation plan: date everything, eat oldest first, restock as you go", only90:true}
   ],
-  "Toilet paper, paper goods, hygiene": [
+  "Toilet paper, paper goods, personal hygiene": [
     {t:"Toilet paper", q:(p,d)=>"About "+Math.ceil(p*d/7*3)+" rolls"},
     {t:"Paper towels", q:(p,d)=>"About "+Math.ceil(d/7*2)+" rolls"},
     {t:"Paper plates, cups, bowls and plastic utensils (saves water on dishes)"},
@@ -300,7 +309,9 @@ const sp = {
     {t:"Toothbrushes, toothpaste, floss"},
     {t:"Feminine products"},
     {t:"Diapers and wipes, if needed"},
-    {t:"Hand sanitizer and disinfecting wipes"},
+    {t:"Hand sanitizer"},
+    {t:"Mouthwash"},
+    {t:"Dry shampoo and no-rinse body wipes (for when water is short)"},
     {t:"Laundry detergent"},
     {t:"Washboard or plunger-style hand washer and a clothesline", only90:true},
     {t:"Emergency toilet: 5-gallon bucket, toilet seat lid, liner bags and kitty litter or sawdust (for when water or sewer is out)"},
@@ -336,20 +347,56 @@ const sp = {
   ],
   "First aid and medicine": [
     {t:"Prescription medicines", q:(p,d)=>"A "+d+"-day supply; ask your doctor or pharmacist about an early refill or 90-day prescription"},
-    {t:"Well-stocked first aid kit"},
-    {t:"Pain and fever reducer, cold and allergy medicine, anti-diarrhea, antacid"},
-    {t:"Thermometer, tweezers, bandages, gauze, medical tape"},
-    {t:"Spare glasses, contacts and solution"},
+    {t:"Antibiotics: ask your doctor about a prescribed emergency supply (never use fish or pet antibiotics)", only90:true},
+    {t:"Well-stocked first aid kit in a bag you can grab"},
+    {t:"Pain and fever reducer (acetaminophen and ibuprofen)"},
+    {t:"Chewable aspirin (for a suspected heart attack, call 911 first)"},
+    {t:"Antihistamine like Benadryl for allergic reactions, plus any prescribed EpiPens"},
+    {t:"Cold and allergy medicine, anti-diarrhea, antacid, laxative"},
+    {t:"Hydrocortisone cream and burn gel"},
+    {t:"Triple antibiotic ointment"},
     {t:"Electrolyte powder or oral rehydration salts"},
-    {t:"First aid book or downloaded guide", only90:true},
-    {t:"Dental repair kit", only90:true}
+    {t:"Spare glasses, contacts and solution"},
+    {t:"Thermometer, tweezers, trauma shears, safety pins"},
+    {t:"Nitrile gloves (several boxes)"},
+    {t:"CPR face shield or pocket mask"},
+    {t:"Instant cold packs and emergency (Mylar) blankets"},
+    {t:"Saline eye wash and an irrigation syringe for cleaning wounds"},
+    {t:"Glucose tablets (for diabetics and low blood sugar)"},
+    {t:"Pulse oximeter and blood pressure cuff", only90:true},
+    {t:"First aid book or downloaded guide"},
+    {t:"Dental repair kit and clove oil", only90:true}
+  ],
+  "Bleeding, wounds and breaks": [
+    {t:"Tourniquet: CAT (Combat Application Tourniquet) or SOF-T, one per adult; buy genuine from a trusted seller, fakes are common"},
+    {t:"Emergency trauma bandages (Israeli-style pressure bandage)"},
+    {t:"Hemostatic gauze like QuikClot for heavy bleeding"},
+    {t:"Gauze pads and rolled gauze, lots of them"},
+    {t:"Medical tape and self-adhering wrap (Coban)"},
+    {t:"Adhesive bandages in all sizes, plus knuckle and fingertip"},
+    {t:"Wound closure strips (Steri-Strips) and butterfly bandages"},
+    {t:"SAM splint (moldable) and elastic ACE wraps"},
+    {t:"Triangular bandages (sling or splint tie)"},
+    {t:"Moleskin and blister pads"},
+    {t:"Chest seals", only90:true},
+    {t:"Suture kit with needle and thread, only if you've been trained; most cuts can be closed with closure strips", only90:true},
+    {t:"Take a free Stop the Bleed class (stopthebleed.org) so you know how to use all this"}
+  ],
+  "Cleaning supplies": [
+    {t:"Bleach (unscented) and a bucket"},
+    {t:"Hydrogen peroxide (for cleaning and disinfecting surfaces)"},
+    {t:"Baking soda and white vinegar (cleaning, odor, and baking soda doubles as toothpaste)"},
+    {t:"Dish soap, sponges and scrub brushes"},
+    {t:"Disinfecting spray and wipes"},
+    {t:"Rubber cleaning gloves"},
+    {t:"Mop, broom and dustpan"},
+    {t:"Extra bleach, vinegar and baking soda in bulk", only90:true}
   ],
   "Tools and home": [
     {t:"Multi-tool, hammer, screwdrivers, pliers"},
     {t:"Wrench to shut off gas and water"},
     {t:"Duct tape, tarps, rope and zip ties"},
     {t:"Work gloves and dust masks"},
-    {t:"Bleach and a bucket for cleanup"},
     {t:"Plywood or plastic sheeting for broken windows", only90:true},
     {t:"Sewing kit and basic repair supplies", only90:true}
   ],
