@@ -78,7 +78,30 @@ footer a{margin:0 8px}
 ul.check .qty{display:block;font-size:14px;color:var(--gold);font-weight:600}
 ul.check .tip{display:block;font-size:14px;color:var(--muted)}
 .tag90{font-size:12px;font-weight:700;color:#1a1530;background:var(--gold-soft);border-radius:999px;padding:1px 8px;margin-left:6px;vertical-align:middle}
-@media print{body{background:#fff;color:#000}header.hero,section{background:none;border-color:#ccc}.btns,.tools,.tabs,.hh,footer,.small-btn{display:none}ul.check label{background:none;border-color:#ccc}h1,h2,.cat{color:#000}}
+.print-title{display:none}
+@media print{
+  @page{margin:0.5in}
+  body{background:#fff;color:#000;font-size:12pt;line-height:1.35}
+  header.hero,section{background:none;border-color:#ccc;padding:12px 0}
+  .btns,.tools,.tabs,.hh,footer,.small-btn,.progress,.badge{display:none!important}
+  h1,h2,h3,.cat,.card h3,blockquote cite{color:#000!important}
+  .lead,.note,.card p{color:#333!important}
+  a{color:#000;text-decoration:none}
+  .card,.warn,blockquote,ul.check li,table,tr{break-inside:avoid;page-break-inside:avoid}
+  h2,h3,.cat{break-after:avoid;page-break-after:avoid}
+  .card,blockquote{background:none!important;border-color:#999}
+  .warn{background:none!important;border:2px solid #000;color:#000}
+  ul.check{gap:2px}
+  ul.check label{background:none!important;border:none;border-bottom:1px solid #ddd;border-radius:0;padding:4px 2px}
+  ul.check input{width:14px;height:14px;margin-top:2px}
+  ul.check .qty{color:#000!important;font-weight:700}
+  ul.check .tip{color:#333!important}
+  .tag90{background:none;border:1px solid #000;color:#000}
+  .cat{margin:14px 0 4px;border-bottom:2px solid #000}
+  body.printing>header,body.printing>section:not(.print-target),body.printing>footer,body.printing>.wrap{display:none!important}
+  body.printing .print-target{border:none;padding-top:0}
+  body.printing .print-title{display:block;font-size:11pt;margin:0 0 8px;color:#333}
+}
 </style>
 </head>
 <body>
@@ -120,16 +143,18 @@ ul.check .tip{display:block;font-size:14px;color:var(--muted)}
 
 <section id="checklist">
   <div class="wrap">
+    <div class="print-title">Kingdom Ready: Survival Prep &middot; ready.kingdom-life-ministry.com</div>
     <h2>72-Hour Emergency Kit Checklist</h2>
     <p class="lead">Based on the Ready.gov basic supply list. Your checkmarks save on this device. Store items in airtight bags, in one or two easy-to-carry bins or a duffel.</p>
     <div class="progress"><div class="bar"><span id="bar"></span></div><strong id="count">0 of 0</strong></div>
     <div id="list"></div>
-    <p style="margin-top:16px"><button class="small-btn" onclick="window.print()">Print checklist</button> <button class="small-btn" id="reset">Clear checkmarks</button></p>
+    <p style="margin-top:16px"><button class="small-btn" onclick="printSection('checklist')">Print checklist</button> <button class="small-btn" id="reset">Clear checkmarks</button></p>
   </div>
 </section>
 
 <section id="stockpile">
   <div class="wrap">
+    <div class="print-title" id="spPrintTitle">Kingdom Ready: Survival Prep &middot; ready.kingdom-life-ministry.com</div>
     <h2>30-Day and 90-Day Prep Lists</h2>
     <p class="lead">Past the 72-hour kit, this is how you stock your home for a month or a whole season: an ice storm that keeps the power off, a job loss, empty store shelves. Build the 30-day list first, then grow it to 90. Enter your household and the amounts below update for you. Your checkmarks save on this device.</p>
     <div class="tabs" role="tablist">
@@ -144,7 +169,7 @@ ul.check .tip{display:block;font-size:14px;color:var(--muted)}
     <div id="spList"></div>
     <p class="note">Amounts are planning estimates, not exact needs. Toilet paper is figured at about 3 rolls per person per week and food at about 2,000 calories per person per day. Adjust for your family.</p>
     <div class="warn"><strong>Generator safety:</strong> a gas, propane or dual-fuel generator makes carbon monoxide, which you can't see or smell and can kill in minutes. Run it outside only, never in the house, garage, basement or carport, and at least 20 feet from doors, windows and vents (CDC). Never plug it into a wall outlet ("backfeeding"); it can electrocute you or a lineman working on the power lines. Use a transfer switch put in by a licensed electrician, or heavy-duty outdoor extension cords. Solar generators (battery power stations) make no fumes and are safe to use indoors.</div>
-    <p style="margin-top:16px"><button class="small-btn" onclick="window.print()">Print this list</button> <button class="small-btn" id="spReset">Clear checkmarks on this list</button></p>
+    <p style="margin-top:16px"><button class="small-btn" onclick="printSection('stockpile')">Print this list</button> <button class="small-btn" id="spReset">Clear checkmarks on this list</button></p>
   </div>
 </section>
 
@@ -271,6 +296,19 @@ function bleach(){
 }
 ["bgal","cloudy"].forEach(id => document.getElementById(id).addEventListener("input", bleach));
 bleach();
+
+function printSection(id){
+  const sec = document.getElementById(id);
+  if (id === "stockpile") {
+    const p = Math.max(1, +document.getElementById("spPeople").value || 1);
+    const x = Math.max(0, +document.getElementById("spPets").value || 0);
+    document.getElementById("spPrintTitle").textContent = spDays + "-Day List for " + p + (p > 1 ? " people" : " person") + (x ? " and " + x + (x > 1 ? " pets" : " pet") : "") + " \u00b7 Kingdom Ready: Survival Prep \u00b7 ready.kingdom-life-ministry.com";
+  }
+  sec.classList.add("print-target"); document.body.classList.add("printing");
+  const done = () => { sec.classList.remove("print-target"); document.body.classList.remove("printing"); window.removeEventListener("afterprint", done); };
+  window.addEventListener("afterprint", done);
+  window.print();
+}
 
 if ("serviceWorker" in navigator) { window.addEventListener("load", () => navigator.serviceWorker.register("sw.js").catch(() => {})); }
 function net(){ const n = document.getElementById("netStatus"); if (n) n.style.display = navigator.onLine ? "none" : "inline-block"; }
