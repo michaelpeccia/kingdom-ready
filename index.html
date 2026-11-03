@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Kingdom Ready: Survival Prep | Emergency Prep Checklist</title>
-<meta name="description" content="Free emergency prep checklist, 72-hour kit list, water calculator and water safety guide from Kingdom Ready, a Kingdom Life Ministry app.">
-<meta name="keywords" content="prepper checklist, 72 hour kit, emergency prep, survival prep, bug out bag, water storage, Christian prepper">
+<meta name="description" content="Free emergency prep checklists: 72-hour kit, 30-day and 90-day stockpile lists, water calculator and water safety guide from Kingdom Ready, a Kingdom Life Ministry app.">
+<meta name="keywords" content="prepper checklist, 72 hour kit, 30 day prep list, 90 day prep list, food storage, generator, solar generator, emergency prep, survival prep, bug out bag, water storage, Christian prepper">
 <meta property="og:title" content="Kingdom Ready: Survival Prep">
 <meta property="og:description" content="Free emergency prep checklist, water calculator and water safety guide.">
 <meta property="og:type" content="website">
@@ -66,7 +66,15 @@ blockquote cite{display:block;margin-top:8px;color:var(--gold);font-style:normal
 footer{padding:36px 0 48px;text-align:center;color:var(--muted);font-size:15px}
 footer a{margin:0 8px}
 .small-btn{background:none;border:1px solid var(--line);color:var(--muted);border-radius:8px;padding:6px 12px;cursor:pointer;font-size:14px}
-@media print{body{background:#fff;color:#000}header.hero,section{background:none;border-color:#ccc}.btns,.tools,footer,.small-btn{display:none}ul.check label{background:none;border-color:#ccc}h1,h2,.cat{color:#000}}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 16px}
+.tab{background:var(--panel);color:var(--ink);border:2px solid var(--line);border-radius:999px;padding:10px 20px;font-weight:700;font-size:16px;cursor:pointer;font-family:inherit}
+.tab[aria-selected="true"]{background:var(--gold);color:#1a1530;border-color:var(--gold)}
+.hh{display:flex;gap:16px;flex-wrap:wrap;align-items:flex-end;margin:0 0 16px}
+.hh .field{margin:0;min-width:180px}
+ul.check .qty{display:block;font-size:14px;color:var(--gold);font-weight:600}
+ul.check .tip{display:block;font-size:14px;color:var(--muted)}
+.tag90{font-size:12px;font-weight:700;color:#1a1530;background:var(--gold-soft);border-radius:999px;padding:1px 8px;margin-left:6px;vertical-align:middle}
+@media print{body{background:#fff;color:#000}header.hero,section{background:none;border-color:#ccc}.btns,.tools,.tabs,.hh,footer,.small-btn{display:none}ul.check label{background:none;border-color:#ccc}h1,h2,.cat{color:#000}}
 </style>
 </head>
 <body>
@@ -75,9 +83,10 @@ footer a{margin:0 8px}
   <div class="wrap">
     <div class="eyebrow">A Kingdom Life Ministry App</div>
     <h1>Kingdom Ready: Survival Prep</h1>
-    <p class="sub">Free emergency prep checklists, a water calculator and a water safety guide, so your household is ready when the storm comes.</p>
+    <p class="sub">Free emergency prep checklists (72-hour, 30-day and 90-day), a water calculator and a water safety guide, so your household is ready when the storm comes.</p>
     <div class="btns">
       <a class="btn primary" href="#checklist">Start the 72-Hour Checklist</a>
+      <a class="btn ghost" href="#stockpile">30 &amp; 90-Day Lists</a>
       <a class="btn ghost" href="#water">Water Calculator</a>
     </div>
     <div class="badge">App coming soon to Google Play</div>
@@ -90,6 +99,7 @@ footer a{margin:0 8px}
     <p class="lead">Everything works offline, because emergencies don't wait for a signal.</p>
     <div class="grid">
       <a class="card" href="#checklist"><h3>Supply checklists</h3><p>72-hour kit, 2-week shelter-in-place, bug-out bag, car kit, plus pets, babies and seniors.</p><span class="go">Start the checklist &rarr;</span></a>
+      <a class="card" href="#stockpile"><h3>30 &amp; 90-day lists</h3><p>Stock your home for a month or a season: food, water, toilet paper, batteries, generators and solar power.</p><span class="go">Build your stockpile &rarr;</span></a>
       <a class="card" href="#water"><h3>How much do I need?</h3><p>Enter your household and days, and get water and food amounts in seconds.</p><span class="go">Try the calculator &rarr;</span></a>
       <a class="card" href="#get-app"><h3>Expiration reminders</h3><p>Alerts before your water, food, batteries and meds go bad.</p><span class="soon">Coming in the app</span></a>
       <a class="card" href="#get-app"><h3>Family plan</h3><p>Meeting spots, contacts and who grabs what, stored only on your phone.</p><span class="soon">Coming in the app</span></a>
@@ -110,6 +120,26 @@ footer a{margin:0 8px}
     <div class="progress"><div class="bar"><span id="bar"></span></div><strong id="count">0 of 0</strong></div>
     <div id="list"></div>
     <p style="margin-top:16px"><button class="small-btn" onclick="window.print()">Print checklist</button> <button class="small-btn" id="reset">Clear checkmarks</button></p>
+  </div>
+</section>
+
+<section id="stockpile">
+  <div class="wrap">
+    <h2>30-Day and 90-Day Prep Lists</h2>
+    <p class="lead">Past the 72-hour kit, this is how you stock your home for a month or a whole season: an ice storm that keeps the power off, a job loss, empty store shelves. Build the 30-day list first, then grow it to 90. Enter your household and the amounts below update for you. Your checkmarks save on this device.</p>
+    <div class="tabs" role="tablist">
+      <button class="tab" role="tab" data-days="30" aria-selected="true">30-Day List</button>
+      <button class="tab" role="tab" data-days="90" aria-selected="false">90-Day List</button>
+    </div>
+    <div class="hh">
+      <div class="field"><label for="spPeople">People in your household</label><input id="spPeople" type="number" min="1" value="4"></div>
+      <div class="field"><label for="spPets">Pets</label><input id="spPets" type="number" min="0" value="0"></div>
+    </div>
+    <div class="progress"><div class="bar"><span id="spBar"></span></div><strong id="spCount">0 of 0</strong></div>
+    <div id="spList"></div>
+    <p class="note">Amounts are planning estimates, not exact needs. Toilet paper is figured at about 3 rolls per person per week and food at about 2,000 calories per person per day. Adjust for your family.</p>
+    <div class="warn"><strong>Generator safety:</strong> a gas, propane or dual-fuel generator makes carbon monoxide, which you can't see or smell and can kill in minutes. Run it outside only, never in the house, garage, basement or carport, and at least 20 feet from doors, windows and vents (CDC). Never plug it into a wall outlet ("backfeeding"); it can electrocute you or a lineman working on the power lines. Use a transfer switch put in by a licensed electrician, or heavy-duty outdoor extension cords. Solar generators (battery power stations) make no fumes and are safe to use indoors.</div>
+    <p style="margin-top:16px"><button class="small-btn" onclick="window.print()">Print this list</button> <button class="small-btn" id="spReset">Clear checkmarks on this list</button></p>
   </div>
 </section>
 
@@ -171,7 +201,7 @@ footer a{margin:0 8px}
   <div class="wrap">
     <p>Kingdom Ready: Survival Prep is a Kingdom Life Ministry app.</p>
     <p>This page is general preparedness information, not professional advice. Always follow instructions from your local authorities.</p>
-    <p>Sources: <a href="https://www.ready.gov/kit">Ready.gov</a> <a href="https://www.cdc.gov/water-emergency/about/index.html">CDC</a> <a href="https://www.epa.gov/ground-water-and-drinking-water/emergency-disinfection-drinking-water">EPA</a></p>
+    <p>Sources: <a href="https://www.ready.gov/kit">Ready.gov</a> <a href="https://www.cdc.gov/carbon-monoxide/about/index.html">CDC carbon monoxide</a> <a href="https://www.ready.gov/power-outages">Ready.gov power outages</a> <a href="https://www.cdc.gov/water-emergency/about/index.html">CDC</a> <a href="https://www.epa.gov/ground-water-and-drinking-water/emergency-disinfection-drinking-water">EPA</a></p>
   </div>
 </footer>
 
@@ -236,6 +266,160 @@ function bleach(){
 }
 ["bgal","cloudy"].forEach(id => document.getElementById(id).addEventListener("input", bleach));
 bleach();
+
+// 30 and 90-day stockpile. q(p,d,pets) returns a quantity line or "". only90 = shows on the 90-day list only.
+const sp = {
+  "Water": [
+    {t:"Stored drinking water", q:(p,d,x)=>"About "+Math.ceil(p*d+x*d*0.5)+" gallons (1 gallon per person per day, half a gallon per pet)"},
+    {t:"Water storage containers or water bricks (food-grade, rotate stored tap water every 6 months)"},
+    {t:"Water filter (gravity or pitcher style) plus spare filter"},
+    {t:"Unscented bleach for treating water (replace yearly, it loses strength)"},
+    {t:"Rain barrel or large water tank, with a way to filter and treat it", only90:true}
+  ],
+  "Food": [
+    {t:"Shelf-stable food your family already eats", q:(p,d)=>(p*d).toLocaleString()+" person-days of food, about "+(p*d*2000).toLocaleString()+" calories"},
+    {t:"Rice, dried beans, oats, pasta and flour"},
+    {t:"Canned meat, tuna, chicken, beans, vegetables, fruit and soup"},
+    {t:"Peanut butter, crackers, nuts, honey, powdered milk"},
+    {t:"Cooking oil, salt, sugar, spices, coffee and tea"},
+    {t:"Multivitamins"},
+    {t:"Comfort food and snacks, especially for kids"},
+    {t:"Baby formula, baby food and bottles, if needed"},
+    {t:"Two manual can openers"},
+    {t:"Long-term storage: bulk rice and beans in Mylar bags or buckets with oxygen absorbers", only90:true},
+    {t:"Freeze-dried meals or #10 cans", only90:true},
+    {t:"Garden seeds (non-hybrid) and basic gardening tools", only90:true},
+    {t:"Rotation plan: date everything, eat oldest first, restock as you go", only90:true}
+  ],
+  "Toilet paper, paper goods, hygiene": [
+    {t:"Toilet paper", q:(p,d)=>"About "+Math.ceil(p*d/7*3)+" rolls"},
+    {t:"Paper towels", q:(p,d)=>"About "+Math.ceil(d/7*2)+" rolls"},
+    {t:"Paper plates, cups, bowls and plastic utensils (saves water on dishes)"},
+    {t:"Heavy-duty trash bags", q:(p,d)=>"About "+d+" bags"},
+    {t:"Bar soap, body wash, shampoo, deodorant"},
+    {t:"Toothbrushes, toothpaste, floss"},
+    {t:"Feminine products"},
+    {t:"Diapers and wipes, if needed"},
+    {t:"Hand sanitizer and disinfecting wipes"},
+    {t:"Laundry detergent"},
+    {t:"Washboard or plunger-style hand washer and a clothesline", only90:true},
+    {t:"Emergency toilet: 5-gallon bucket, toilet seat lid, liner bags and kitty litter or sawdust (for when water or sewer is out)"},
+    {t:"Razors, nail clippers, hairbrush, lotion, lip balm"}
+  ],
+  "Batteries, light, power": [
+    {t:"Batteries in every size your gear uses (AA, AAA, C, D, 9-volt)", q:(p,d)=>d>=90?"Plan on at least 3 full sets for every device":"Plan on at least 2 full sets for every device"},
+    {t:"Rechargeable batteries plus a solar or USB battery charger"},
+    {t:"Flashlights and headlamps, one per person"},
+    {t:"LED lanterns for each room you'll use"},
+    {t:"Candles: long-burning emergency candles or unscented pillar candles, with sturdy holders (never leave burning unattended or near kids, pets or curtains)", q:(p,d)=>"About "+Math.ceil(d/3)+" long-burning candles"},
+    {t:"Oil lanterns with extra wicks and lamp oil (use in a ventilated room, away from anything that can burn)", only90:true},
+    {t:"Power banks for phones, kept charged"},
+    {t:"Solar generator (portable battery power station) with folding solar panels; safe indoors, no fuel, silent"},
+    {t:"Gas, propane or dual-fuel generator, sized for fridge, freezer, lights and a fan or space heater (outdoor use only)"},
+    {t:"Heavy-duty outdoor-rated extension cords for the generator"},
+    {t:"Fuel stored safely in approved cans, away from the house, with fuel stabilizer; rotate it"},
+    {t:"Carbon monoxide detectors with battery backup, near bedrooms"},
+    {t:"Surge protectors for when power comes back on"},
+    {t:"Generator spare parts: oil, spark plug, air filter", only90:true},
+    {t:"Transfer switch or interlock kit installed by a licensed electrician", only90:true},
+    {t:"Larger solar setup: extra panels or a second power station", only90:true}
+  ],
+  "Heat, cooking, fire safety": [
+    {t:"Warm blankets and sleeping bags rated for cold, one per person"},
+    {t:"Winter coats, hats, gloves, wool socks, thermal layers"},
+    {t:"Camp stove or grill with fuel (propane, butane or charcoal), used outdoors only"},
+    {t:"Matches and lighters in a waterproof container"},
+    {t:"Fire extinguisher (ABC) and working smoke detectors"},
+    {t:"Firewood stacked and dry, if you have a fireplace or wood stove"},
+    {t:"Indoor-safe heater rated for indoor use, with extra fuel, and a CO detector in the same room", only90:true},
+    {t:"Cast iron pan and a pot that can go on a fire", only90:true}
+  ],
+  "First aid and medicine": [
+    {t:"Prescription medicines", q:(p,d)=>"A "+d+"-day supply; ask your doctor or pharmacist about an early refill or 90-day prescription"},
+    {t:"Well-stocked first aid kit"},
+    {t:"Pain and fever reducer, cold and allergy medicine, anti-diarrhea, antacid"},
+    {t:"Thermometer, tweezers, bandages, gauze, medical tape"},
+    {t:"Spare glasses, contacts and solution"},
+    {t:"Electrolyte powder or oral rehydration salts"},
+    {t:"First aid book or downloaded guide", only90:true},
+    {t:"Dental repair kit", only90:true}
+  ],
+  "Tools and home": [
+    {t:"Multi-tool, hammer, screwdrivers, pliers"},
+    {t:"Wrench to shut off gas and water"},
+    {t:"Duct tape, tarps, rope and zip ties"},
+    {t:"Work gloves and dust masks"},
+    {t:"Bleach and a bucket for cleanup"},
+    {t:"Plywood or plastic sheeting for broken windows", only90:true},
+    {t:"Sewing kit and basic repair supplies", only90:true}
+  ],
+  "Communication, cash, documents": [
+    {t:"Battery or hand-crank radio with NOAA Weather Radio alert"},
+    {t:"Two-way radios (walkie-talkies) with spare batteries"},
+    {t:"Cash in small bills (card readers go down with the power)"},
+    {t:"Copies of IDs, insurance and medical info in a waterproof bag"},
+    {t:"Written list of phone numbers (don't rely on your phone)"},
+    {t:"Local paper maps"},
+    {t:"Extra cash reserve and a plan to cover bills for the season", only90:true}
+  ],
+  "Pets": [
+    {t:"Pet food", q:(p,d,x)=>x>0?"A "+d+"-day supply for "+x+" pet"+(x>1?"s":""):"Skip if no pets"},
+    {t:"Pet medicine, leash, carrier, litter or waste bags"}
+  ],
+  "Family and spirit": [
+    {t:"Bible, Scripture cards and a prayer list for your household"},
+    {t:"Books, board games, cards and crafts for long days without power"},
+    {t:"Notebook and pens"},
+    {t:"Family plan: where to meet, who checks on neighbors, who does what"},
+    {t:"Extra to share: a neighbor or widow may not be ready", only90:true}
+  ]
+};
+let spDays = 30;
+const spKey = () => "krSP" + spDays;
+let spSaved = {};
+function spLoad(){ try { spSaved = JSON.parse(localStorage.getItem(spKey()) || "{}"); } catch(e) { spSaved = {}; } }
+function spSave(){ try { localStorage.setItem(spKey(), JSON.stringify(spSaved)); } catch(e) {} }
+const spList = document.getElementById("spList");
+function spRender(){
+  const p = Math.max(1, +document.getElementById("spPeople").value || 1);
+  const x = Math.max(0, +document.getElementById("spPets").value || 0);
+  spList.innerHTML = "";
+  for (const [cat, items] of Object.entries(sp)) {
+    const h = document.createElement("div"); h.className = "cat"; h.textContent = cat; spList.appendChild(h);
+    const ul = document.createElement("ul"); ul.className = "check";
+    items.forEach((it, i) => {
+      if (it.only90 && spDays < 90) return;
+      const id = cat + "|" + i;
+      const li = document.createElement("li");
+      li.innerHTML = '<label><input type="checkbox"><span><b></b><em class="qty"></em></span></label>';
+      li.querySelector("b").textContent = it.t;
+      li.querySelector("b").style.fontWeight = "400";
+      if (it.only90) { const t = document.createElement("span"); t.className = "tag90"; t.textContent = "90-day"; li.querySelector("b").after(t); }
+      const qty = it.q ? it.q(p, spDays, x) : "";
+      const qe = li.querySelector(".qty");
+      if (qty) { qe.textContent = qty; qe.style.fontStyle = "normal"; } else qe.remove();
+      const cb = li.querySelector("input");
+      cb.checked = !!spSaved[id];
+      cb.addEventListener("change", () => { spSaved[id] = cb.checked; spSave(); spUpdate(); });
+      ul.appendChild(li);
+    });
+    spList.appendChild(ul);
+  }
+  spUpdate();
+}
+function spUpdate(){
+  const all = spList.querySelectorAll("input").length;
+  const done = spList.querySelectorAll("input:checked").length;
+  document.getElementById("spCount").textContent = done + " of " + all;
+  document.getElementById("spBar").style.width = (all ? done / all * 100 : 0) + "%";
+}
+document.querySelectorAll(".tab").forEach(b => b.addEventListener("click", () => {
+  document.querySelectorAll(".tab").forEach(o => o.setAttribute("aria-selected", o === b ? "true" : "false"));
+  spDays = +b.dataset.days; spLoad(); spRender();
+}));
+["spPeople","spPets"].forEach(id => document.getElementById(id).addEventListener("input", spRender));
+document.getElementById("spReset").addEventListener("click", () => { spSaved = {}; spSave(); spRender(); });
+spLoad(); spRender();
 </script>
 </body>
 </html>
